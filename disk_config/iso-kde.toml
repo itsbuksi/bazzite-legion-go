@@ -1,7 +1,7 @@
 [customizations.installer.kickstart]
 contents = """
 %post
-bootc switch --mutate-in-place --transport registry ghcr.io/itsbuksi/bazzite-legion-go:latest
+bootc switch --mutate-in-place --transport registry --tls-verify=false ghcr.io/itsbuksi/bazzite-legion-go:latest
 %end
 """
 
@@ -17,5 +17,5 @@ enable = [
 ]
 
 disable = [
-  "org.fedoraproject.Anaconda.Modules.Subscription",
+  "org.fedoraproject.Anaconda.Modules.Subscription"
 ]
