@@ -24,4 +24,10 @@ dnf5 install -y tmux
 
 #### Example for enabling a System Unit File
 
+# Szigorú diéta a 8GB-os pendrive-hoz
+echo "=== Felesleges monstrumok eltávolítása ==="
+for package in firefox thunderbird libreoffice-core vlc steamvr totem virtualbox-guest-additions; do
+    rpm-ostree override remove "$package" || echo "A(z) $package nem található, kihagyás..."
+done
+
 systemctl enable podman.socket
