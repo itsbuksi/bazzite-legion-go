@@ -1,3 +1,10 @@
 [[customizations.filesystem]]
 mountpoint = "/"
 minsize = "20 GiB"
+
+[customizations.installer.kickstart]
+contents = """
+%post
+bootc switch --mutate-in-place --transport registry --tls-verify=false ghcr.io/itsbuksi/bazzite-legion-go:latest
+%end
+"""
